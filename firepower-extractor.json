@@ -1,0 +1,20 @@
+{
+  "extractors": [
+    {
+      "title": "Cisco Firepower",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "cut",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "%{IP:source} %{DATA:UNWANTED} Protocol: %{DATA:proto}, SrcIP: %{IP:src_addr}, DstIP: %{IP:dst_addr}, SrcPort: %{INT:src_port}, DstPort: %{INT:dst_port}, IngressInterface: %{DATA:in_iface}, EgressInterface: %{DATA:out_iface}, IngressZone: %{DATA:in_zone}, EgressZone: %{DATA:out_zone}, Priority: %{INT:priority}, DE: %{DATA:engine}, Policy: %{DATA:policy}, GID: %{INT:gid}, SID: %{INT:sid}, Revision: %{INT:rev}, Message: %{DATA:description}, Classification: %{DATA:classification}, User: %{DATA:user},( WebApplication: %{DATA:web_app},)?( Client: %{DATA:client},)?( ApplicationProtocol: %{DATA:app},)? ACPolicy: %{DATA:ac_policy}, NAPPolicy: %{WORD:nap_policy}([a-zA-Z0-9 ]*)(, HTTPResponse: %{INT:statuscode})?",
+        "named_captures_only": false
+      },
+      "condition_type": "string",
+      "condition_value": "SFIMS"
+    }
+  ],
+  "version": "2.1.0-SNAPSHOT"
+}
