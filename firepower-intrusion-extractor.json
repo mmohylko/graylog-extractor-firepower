@@ -1,7 +1,7 @@
 {
   "extractors": [
     {
-      "title": "Cisco Firepower",
+      "title": "Cisco Firepower Intrusion events",
       "extractor_type": "grok",
       "converters": [],
       "order": 0,
