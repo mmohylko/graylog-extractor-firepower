@@ -1,5 +1,8 @@
 # Graylog GROK extractors for Cisco Firepower
-Two Graylog GROK extractors for Cisco Firepower **Intrusion events** and **Access Control** log (simple syslog, not estreamer)
+Graylog GROK extractors for Cisco Firepower **Intrusion events** and **Access Control** log (simple syslog, not estreamer)
+firepower-access_control-extractor.json - **Access Control** events
+firepower-intrusion-extractor.json - **Intrusion events** events
+firepower-extractor.json - both **Intrusion events** and **Access Control** events
 
 ![alt tag](http://i.piccy.info/i9/31db09a41a64693952cf821cd274e5f4/1477571240/103371/1059582/_Fh_fi00576graylog_firepower_extractor_scr1.png)
 
