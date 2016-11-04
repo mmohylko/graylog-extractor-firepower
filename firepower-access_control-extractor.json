@@ -1,0 +1,19 @@
+{
+  "extractors": [
+    {
+      "title": "Cisco Firepower Access Control events",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "cut",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "%{DATA:source} %{DATA:dvc} Protocol: %{WORD:proto}, SrcIP: %{IP:src_addr}(, OriginalClientIP: %{DATA:client_ip})?, DstIP: %{IP:dst_addr}, SrcPort: %{INT:src_port}, DstPort: %{INT:dst_port}, TCPFlags: %{BASE16NUM:tcp_flags}, IngressInterface: %{DATA:in_iface}, EgressInterface: %{DATA:out_iface}, IngressZone: %{DATA:in_zone}, EgressZone: %{DATA:out_zone}, DE: %{DATA:engine}, Policy: %{DATA:policy}, ConnectType: %{WORD:conn_type}, AccessControlRuleName: %{DATA:ac_rule_name}, AccessControlRuleAction: %{WORD:ac_action},( Prefilter Policy: %{DATA:prefilter_policy},)?( Client: %{WORD:client},)? UserName: %{DATA:user}, InitiatorPackets: %{INT:init_packets}, ResponderPackets: %{INT:resp_packets}, InitiatorBytes: %{INT:init_bytes}, ResponderBytes: %{INT:resp_bytes},( NAPPolicy: %{DATA:nap_policy},)?( DNSQuery: %{DATA:dns_query},)?( DNSRecordType: %{DATA:dns_rec_type},)? DNSResponseType: %{DATA:dns_resp_type}, Sinkhole: %{DATA:sinkhole}, URLCategory: %{DATA:url_cat}, URLReputation: %{GREEDYDATA:url_rep}"
+      },
+      "condition_type": "string",
+      "condition_value": "AccessControlRuleName"
+    }
+  ],
+  "version": "0.1"
+}
